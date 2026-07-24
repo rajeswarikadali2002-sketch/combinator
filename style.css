@@ -1,0 +1,108 @@
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Deep Emerald Green Radial Gradient Background */
+  background: radial-gradient(circle at center, BLUE 0%, #180c21 70%, #05120e 100%);
+  font-family: 'Playfair Display', 'Georgia', serif;
+  padding: 1rem;
+}
+
+/* Glassmorphism Frame - Compact Width */
+.gallery-container {
+  max-width: 420px; /* Reduced overall container size */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(126, 239, 241, 0.363); /* Gold Accent Border */
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+              inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+.gallery-title {
+  text-align: center;
+  color: #8ff17e; /* Champagne Gold */
+  font-size: 1.4rem; /* Scaled down header */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+  text-shadow: 0 2px 8px rgba(241, 211, 126, 0.3);
+}
+
+/* Flexbox Layout configured for 2x2 structure with tight gaps */
+.gallery-flex {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 0.8rem; /* Smaller gap */
+  justify-content: center;
+}
+
+/* Small fixed-size cards using Flexbox */
+.flex-item {
+  flex: 0 0 calc(50% - 0.4rem); /* Exactly 2 small cards per row */
+  max-width: calc(50% - 0.4rem);
+  height: 140px; /* Reduced fixed height for small images */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 211, 126, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.flex-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover Overlay Text */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12, 33, 26, 0.85), transparent 70%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.6rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay h2 {
+  color: #f1d37e;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Hover Animation Effects */
+.flex-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(241, 211, 126, 0.8);
+  box-shadow: 0 10px 20px rgba(241, 211, 126, 0.2);
+}
+
+.flex-item:hover img {
+  transform: scale(1.08);
+}
+
+.flex-item:hover .image-overlay {
+  opacity: 1;
+}
